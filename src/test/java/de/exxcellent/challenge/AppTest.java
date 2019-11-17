@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Example JUnit4 test case.
  * @author Benjamin Schmid <benjamin.schmid@exxcellent.de>
  */
-public class AppTest {
+class AppTest {
 
     private String successLabel = "not successful";
 
@@ -22,27 +22,28 @@ public class AppTest {
 
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         successLabel = "successful";
     }
 
     @Test
-    public void aPointlessTest() {
+    void aPointlessTest() {
         assertEquals("successful", successLabel, "My expectations were not met");
     }
 
     @Test
-    public void runFootball() throws IOException {
+    void runFootball() throws IOException {
         App.main("--football", "football.csv");
     }
 
     @Test
-    public void runWeather() throws IOException {
+    void runWeather() throws IOException {
         App.main("--weather", "weather.csv");
     }
 
     @Test
-    public void testFootball() throws IOException {
+    void testFootball() throws IOException {
+        //Check if returned String is correct.
         File football = new File(BASE_FILEPATH + FILENAME_FOOTBALL);
         RangeFinder finder = new RangeFinder();
         String teamWithSmallestGoalSpread = finder.getMinRangeValue(football.getPath(), 6, 5);
@@ -50,7 +51,8 @@ public class AppTest {
     }
 
     @Test
-    public void testWeather() throws IOException {
+    void testWeather() throws IOException {
+        //Check if returned String is correct.
         File weather = new File(BASE_FILEPATH + FILENAME_WEATHER);
         RangeFinder finder = new RangeFinder();
         String dayWithSmallestTemperatureSpread = finder.getMinRangeValue(weather.getPath(), 2, 1);

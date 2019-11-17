@@ -14,13 +14,19 @@ public final class App {
     private final static String CMDLINE_PARAM_FOOTBALL = "--football";
     private final static String CMDLINE_PARAM_WEATHER = "--weather";
     private final static String BASE_FILEPATH = "src/main/resources/de/exxcellent/challenge/";
+
     /**
      * This is the main entry method of your program.
-     * @param args The CLI arguments passed
+     * @param args The CLI arguments passed.
+     * @throws IOException if given file can't be found or read.
      */
     public static void main(String... args) throws IOException {
 
-        // Your preparation code
+        /*
+        Checks for correct parameters, prints error message to console if incorrect.
+        Depending on given parameters, prints day with minimum temperature spread
+        or football team with minimum goal difference.
+         */
 
         if(args[0].equals(CMDLINE_PARAM_FOOTBALL)){
             File football = new File(BASE_FILEPATH + args[1]);
